@@ -1,4 +1,4 @@
-name: Update
+name: Update streak.json
 
 on:
   schedule:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  check-in:
+  update:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
