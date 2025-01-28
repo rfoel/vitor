@@ -1,0 +1,24 @@
+name: Update
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+
+jobs:
+  check-in:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - name: Download streak data
+        run: curl https://www.duolingo.com/2017-06-30/users/1416256037?fields=streakData%7BcurrentStreak,previousStreak%7D,picture -o streak.json
+      - name: Commit and push file
+        run: |
+          git add streak.json
+          git commit -m "update streak.json"
+          git push
