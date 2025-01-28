@@ -3,7 +3,7 @@ import { cn } from './cn'
 
 function App() {
   const startDate = '2025-01-26'
-  const isStreakSafe = streakData.currentStreak.startDate === startDate
+  const isStreakSafe = streakData.currentStreak?.startDate === startDate
 
   return (
     <div
@@ -15,7 +15,9 @@ function App() {
     >
       <img src={`https:${picture}/xlarge`} className="w-[200px] h-[200px]" />
       <h1 className="text-4xl">Vitor's Duolingo Streak</h1>
-      <p>{streakData.currentStreak.length} days</p>
+      {streakData.currentStreak ? (
+        <p>{streakData.currentStreak.length} days</p>
+      ) : null}
       {isStreakSafe ? (
         <p>Streak is safe!</p>
       ) : (
