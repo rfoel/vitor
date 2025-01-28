@@ -21,7 +21,7 @@ jobs:
           node-version: 20
           cache: 'npm'
       - name: Download streak data
-        run: curl https://www.duolingo.com/2017-06-30/users/1416256037?fields=streakData%7BcurrentStreak,previousStreak%7D,picture -o public/streak.json
+        run: curl https://www.duolingo.com/2017-06-30/users/1416256037?fields=streakData%7BcurrentStreak,previousStreak%7D,picture -o src/assets/streak.json
       - name: Commit and push file
         run: |
           git config user.name github-actions
